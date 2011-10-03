@@ -1,0 +1,70 @@
+<!Doctype html>
+<html lang="ja">
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+<title>Demo | jQuery.jcflick</title>
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1">
+
+<link rel="stylesheet" href="jquery-jcflick.css" media="all" type="text/css">
+
+<script type="text/javascript" src="jquery-1.6.4.min.js"></script>
+<script type="text/javascript" src="jquery-jcflick.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('#demo').jcflick({
+		//init
+		flickContainer: 'flickContainer',
+		flickWrapper: 'flickWrapper',
+		flickCol: 'flickCol',
+		
+		//conf
+		flickLamp: 'flickLamp',
+		flickBtn: 'flickBtn',
+		flickBtnNextName: 'Next',
+		flickBtnBackName: 'Back',
+		flickCur: 0,
+		autoChange: true,
+		autoTimer: 5000
+	});
+});
+</script>
+
+</head>
+<body onLoad="ProjectName.PARTS.hideAdBar()" onOrientationChange="ProjectName.PARTS.hideAdBar()">
+
+	<div class="section">
+		<div id="demo">
+			<!-- flick -->
+			<div class="flickContainer"><div class="flickWrapper">
+				<div class="flickCol">
+					<p><a href="#"><img src="images/main_jcflick.png" width="100%" alt="jQuery.jcflick"></a></p>
+				</div>
+				<div class="flickCol">
+					<p><a href="#"><img src="images/main_slideEffect.png" width="100%" alt="jQuery.slide-effect"></a></p>
+				</div>
+				<div class="flickCol">
+					<p><a href="#"><img src="images/main_hogehoge.png" width="100%" alt="jQuery.hogehoge"></a></p>
+				</div>
+			</div></div>
+			
+			<!-- flickLamp -->
+			<div class="flickLamp"></div>
+			<!-- /.flickLamp -->
+			
+			<!-- flickBtn -->
+			<div class="flickBtn group"></div>
+			<!-- /.flickBtn -->
+		</div>
+	</div><!-- /.section -->
+
+</body>
+</html>
