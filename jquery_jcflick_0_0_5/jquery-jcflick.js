@@ -250,6 +250,9 @@ var init = function( args, self ){
 		if( f.p.autoChangeFlag ){
 			flickWrapper.css({ width: flickContainer.width() + 'px' });
 			flickCol.css({ width: flickContainer.width() + 'px' });
+			if( typeof(args.flickBtn) != 'undefined' ){
+				flickBtn.css({ width: flickContainer.width() + 'px' });
+			}
 			f.p.wrapperWidth = (f.p.totalLength = flickCol.length)*(f.p.colWidth = flickCol.width());
 			flickWrapper.css({
 				width: f.p.wrapperWidth
