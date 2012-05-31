@@ -3,11 +3,10 @@
 * マルチデバイス対応(メディアクエリー対応)
 * PC, iOS, Android
 * 
-* @version 0.0.5
+* @version 0.0.6
 * @Author: hiroki ooiwa;
-* @Url:    http://hiropo.co.uk
-* @Date    2010/10/22
-* @Update  2011/09/30
+* @Url:    http://tpl.funnythingz.com
+* @Update  2012/05/31
 */
 
 (function(jQuery){
@@ -301,7 +300,6 @@ var init = function( args, self ){
 		f.flickBtnNext.bind('click', function(){
 			f.p.autoChangeFlag = false;
 			clearInterval(f.p.Timer);
-			clearInterval(f.p.AndroidTimer);
 			
 			flag = false;
 			if( f.p.nowPage < (f.p.totalLength - 1) ){
@@ -328,14 +326,12 @@ var init = function( args, self ){
 			if( autoChange ){
 				f.p.Timer = setInterval(autoChangeFunc, mintime);
 			}
-			f.p.AndroidTimer = setInterval(autoWidthChange, 1000);
 		});
 		
 		//event 戻る
 		f.flickBtnBack.bind('click', function(){
 			f.p.autoChangeFlag = false;
 			clearInterval(f.p.Timer);
-			clearInterval(f.p.AndroidTimer);
 			
 			flag = false;
 			if( f.p.nowPage > 0 ){
@@ -362,7 +358,6 @@ var init = function( args, self ){
 			if( autoChange ){
 				f.p.Timer = setInterval(autoChangeFunc, mintime);
 			}
-			f.p.AndroidTimer = setInterval(autoWidthChange, 1000);
 		});
 	}
 	var androidua = navigator.userAgent;
@@ -372,7 +367,6 @@ var init = function( args, self ){
 			f.p.touchPositionX = event.originalEvent.touches[0].clientX;
 			f.p.touchPositionY = event.originalEvent.touches[0].clientY;
 			clearInterval(f.p.Timer);
-			clearInterval(f.p.AndroidTimer);
 		}
 		if( event.type === 'touchmove' ){
 			f.p.positionIntX = f.p.touchPositionX - event.originalEvent.touches[0].clientX;
@@ -453,7 +447,6 @@ var init = function( args, self ){
 				if( autoChange ){
 					f.p.Timer = setInterval(autoChangeFunc, mintime);
 				}
-				f.p.AndroidTimer = setInterval(autoWidthChange, 1000);
 			}
 			f.p.flag = false;
 		}
@@ -462,7 +455,6 @@ var init = function( args, self ){
 			if( autoChange ){
 				f.p.Timer = setInterval(autoChangeFunc, mintime);
 			}
-			f.p.AndroidTimer = setInterval(autoWidthChange, 1000);
 		}
 	}
 	if( !androidua.match(/Android 1\.5/) || !androidua.match(/Android 1\.6/) ){
@@ -471,11 +463,18 @@ var init = function( args, self ){
 	if( autoChange ){
 		f.p.Timer = setInterval(autoChangeFunc, mintime);
 	}
-	//------------------------------------------------------------
-	// どの横幅からでも1秒間1回横幅を取得して再計算させる。
-	// これによりどの端末からでもリキッド状態のカルーセルフリックが可能となる。
-	//
-	f.p.AndroidTimer = setInterval(autoWidthChange, 1000);
+	window.addEventListener('load', autoWidthChange, true);
+	(function(){
+    var timer = false;
+  	window.addEventListener('resize', function(){
+      if (timer !== false) {
+        clearTimeout(timer);
+      }
+      timer = setTimeout(function(){
+        autoWidthChange();
+      }, 200);
+  	}, true);
+	})();
 }
 
 
