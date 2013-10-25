@@ -1,0 +1,16 @@
+{
+  "name": "jQuery.jcflick.js",
+  "version": "0.0.6",
+  "author": "funnythingz",
+  "license": "BSD",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-typescript": "~0.2.3",
+    "grunt-contrib-uglify": "~0.2.2",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-watch": "~0.5.1",
+    "grunt-contrib-sass": "~0.4.1",
+    "grunt-contrib-compass": "~0.5.0",
+    "grunt-contrib-concat": "~0.3.0"
+  }
+}
