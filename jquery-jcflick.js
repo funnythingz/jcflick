@@ -3,7 +3,7 @@
 * @MediaQueries
 * PC, iOS, Android
 * 
-* @version 0.0.7
+* @version 0.0.8
 * @Author: hiroki ooiwa;
 * @Url:    http://tpl.funnythingz.com/js/jcflick/
 * @license MIT (http://www.opensource.org/licenses/mit-license.php)
@@ -463,11 +463,11 @@ var init = function( args, self ){
 		f.p.Timer = setInterval(autoChangeFunc, mintime);
 	}
 
-	$(window).on('load', autoWidthChange);
+	$(window).bind('load', autoWidthChange);
 
 	(function(){
     var timer = false;
-  	$(window).on('resize', function(){
+  	$(window).bind('resize', function(){
       if (timer !== false) {
         clearTimeout(timer);
       }

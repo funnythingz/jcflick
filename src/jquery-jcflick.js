@@ -453,11 +453,11 @@ var init = function( args, self ){
 		f.p.Timer = setInterval(autoChangeFunc, mintime);
 	}
 
-	$(window).on('load', autoWidthChange);
+	$(window).bind('load', autoWidthChange);
 
 	(function(){
     var timer = false;
-  	$(window).on('resize', function(){
+  	$(window).bind('resize', function(){
       if (timer !== false) {
         clearTimeout(timer);
       }
