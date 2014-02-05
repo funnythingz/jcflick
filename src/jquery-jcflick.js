@@ -452,17 +452,19 @@ var init = function( args, self ){
 	if( autoChange ){
 		f.p.Timer = setInterval(autoChangeFunc, mintime);
 	}
-	window.addEventListener('load', autoWidthChange, true);
+
+	$(window).on('load', autoWidthChange);
+
 	(function(){
     var timer = false;
-  	window.addEventListener('resize', function(){
+  	$(window).on('resize', function(){
       if (timer !== false) {
         clearTimeout(timer);
       }
       timer = setTimeout(function(){
         autoWidthChange();
       }, 200);
-  	}, true);
+  	});
 	})();
 }
 

@@ -3,7 +3,7 @@
 * @MediaQueries
 * PC, iOS, Android
 * 
-* @version 0.0.6
+* @version 0.0.7
 * @Author: hiroki ooiwa;
 * @Url:    http://tpl.funnythingz.com/js/jcflick/
 * @license MIT (http://www.opensource.org/licenses/mit-license.php)
@@ -462,17 +462,19 @@ var init = function( args, self ){
 	if( autoChange ){
 		f.p.Timer = setInterval(autoChangeFunc, mintime);
 	}
-	window.addEventListener('load', autoWidthChange, true);
+
+	$(window).on('load', autoWidthChange);
+
 	(function(){
     var timer = false;
-  	window.addEventListener('resize', function(){
+  	$(window).on('resize', function(){
       if (timer !== false) {
         clearTimeout(timer);
       }
       timer = setTimeout(function(){
         autoWidthChange();
       }, 200);
-  	}, true);
+  	});
 	})();
 }
 
