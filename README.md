@@ -9,8 +9,7 @@ iPhone, Android, iPad, Android3 タブレットなどのスマートフォン端
 
 ## Doc
 
-<a href="http://tpl.funnythingz.com/js/jcflick/">http://tpl.funnythingz.com/js/jcflick/</a>
+[http://www.funnythingz.com/responsive/jcflick/](http://www.funnythingz.com/responsive/jcflick/)
 
-<hr>
 
 &copy; funnythingz
